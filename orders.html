@@ -1,0 +1,4 @@
+<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>سفارشات من</title><link rel="stylesheet" href="style.css"><style>.order-item{background:rgba(255,255,255,0.1);border-radius:15px;padding:12px;margin-bottom:10px;}</style></head><body><div class="container"><h2>سفارشات شما</h2><div id="orders-list">در حال بارگیری...</div><button class="btn" onclick="location.href='index.html'">بازگشت</button></div><script>
+fetch('https://chavosh724.ir/api/get_orders?user_id='+localStorage.getItem('user_id'))
+.then(r=>r.json()).then(data=>{ let html=''; data.orders.forEach(o=>{ html+=`<div class="order-item"><strong>${o.title}</strong><br>وضعیت: ${o.status}<br><a href="chat.html?order_id=${o.id}">گفتگو</a></div>`; }); document.getElementById('orders-list').innerHTML=html; }).catch(()=>document.getElementById('orders-list').innerHTML='خطا در دریافت سفارشات');
+</script></body></html>

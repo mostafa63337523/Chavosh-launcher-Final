@@ -1,0 +1,14 @@
+<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8"><title>درخواست جدید</title><link rel="stylesheet" href="style.css"></head><body><div class="container"><h2>ثبت درخواست جدید</h2><form id="orderForm"><input type="text" id="title" placeholder="عنوان درخواست" required><textarea id="desc" rows="4" placeholder="توضیحات کامل"></textarea><input type="file" id="fileAttach" accept="image/*,application/pdf"><button type="submit" class="btn">ارسال درخواست</button></form><button class="btn" onclick="location.href='index.html'">بازگشت</button></div><script>
+document.getElementById('orderForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('title', document.getElementById('title').value);
+    formData.append('description', document.getElementById('desc').value);
+    const file = document.getElementById('fileAttach').files[0];
+    if(file) formData.append('attachment', file);
+    const res = await fetch('https://chavosh724.ir/api/new_order', { method: 'POST', body: formData });
+    const result = await res.json();
+    alert(result.message);
+    if(result.order_id) location.href = `chat.html?order_id=${result.order_id}`;
+});
+</script></body></html>

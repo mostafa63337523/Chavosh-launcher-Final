@@ -1,0 +1,8 @@
+<!DOCTYPE html><html dir="rtl"><head><meta charset="UTF-8"><title>چت</title><link rel="stylesheet" href="style.css"><style>.msg{background:rgba(255,255,255,0.1);border-radius:15px;padding:8px;margin:5px 0;}</style></head><body><div class="container"><div id="chat-box" style="height:400px;overflow-y:auto;margin-bottom:10px;"></div><textarea id="msgInput" rows="2" style="width:100%;border-radius:20px;padding:10px;"></textarea><button id="sendMsg" class="btn">ارسال</button><button class="btn" onclick="location.href='index.html'">بازگشت</button></div><script>
+const orderId = new URLSearchParams(location.search).get('order_id');
+let interval;
+function loadMessages() { fetch(`https://chavosh724.ir/api/get_messages?order_id=${orderId}`).then(r=>r.json()).then(data=>{ let html=''; data.messages.forEach(m=>{ html+=`<div class="msg"><strong>${m.sender}</strong> (${m.time})<br>${m.text}</div>`; }); document.getElementById('chat-box').innerHTML=html; }); }
+document.getElementById('sendMsg').onclick=async()=>{ const text=document.getElementById('msgInput').value; if(!text) return; await fetch('https://chavosh724.ir/api/send_message',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({order_id:orderId,message:text})}); document.getElementById('msgInput').value=''; loadMessages(); };
+loadMessages(); interval = setInterval(loadMessages, 5000);
+window.onbeforeunload = ()=> clearInterval(interval);
+</script></body></html>

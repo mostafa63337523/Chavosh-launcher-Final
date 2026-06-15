@@ -1,0 +1,19 @@
+{
+  "appId": "ir.chavosh.app",
+  "appName": "چاووش",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "NotificationReader": {
+      "enabled": true
+    },
+    "SMS": {
+      "allowRead": true
+    },
+    "BackgroundFetch": {
+      "minimumFetchInterval": 15
+    }
+  }
+}
