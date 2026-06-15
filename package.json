@@ -1,7 +1,7 @@
 {
-  "name": "chavosh-final",
-  "version": "1.0.0",
-  "description": "اپلیکیشن چاووش به صورت دائمی شفاف",
+  "name": "chavosh-ultimate",
+  "version": "V1.36",
+  "description": "اپلیکیشن هوشمند چاووش",
   "main": "index.html",
   "scripts": {
     "build": "echo build"
